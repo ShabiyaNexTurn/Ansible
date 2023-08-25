@@ -1,0 +1,10 @@
+- name: installing nginx on g2
+  hosts: Group_01
+  become: true
+  tasks:
+    - name: installing nginx
+      apt: name=nginx state=present
+    - name: start nginx
+      service: name=nginx state=started
+
+#Write a playbook to install a package and start a service
