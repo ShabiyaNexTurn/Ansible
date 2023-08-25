@@ -27,4 +27,9 @@
     name: mysql
     state: started
     enabled: yes
+#managing user's with roles
+
+- name: user creation
+  shell: useradd raj
+
 
