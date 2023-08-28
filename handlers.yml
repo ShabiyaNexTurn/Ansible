@@ -1,0 +1,19 @@
+- name: apache
+  hosts: Group_02
+  become: true
+  tasks:
+    - name: Apache installation
+      apt:
+        update_cache: yes
+    - name: install apache2
+      apt:
+          name: apache2
+          state: present
+      notify:
+               - name: Restart apache2
+
+  handlers:
+           - name: Restart apache2
+             service: name=apache2 state=restarted
+
+#Use handlers to restart the application service only if changes are made.

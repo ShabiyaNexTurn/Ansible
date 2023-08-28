@@ -1,0 +1,25 @@
+#create vault.yml file and define yourr secrets in the file
+#to create valut file
+#ansible-vault create filename.yml # set your vault pass
+#to view
+#ansible-valut view create filename.yml #authenticate vault pass
+#to edit
+#ansible-vault edit filename.yml #authenticate vault pass
+
+
+#vault.yml file
+ansible-vault view vault.yml
+Vault password:
+password: shabi
+
+#using secrets in playbook from vault file
+
+- name: vault testing
+  hosts: all
+  become: true
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: creation of dir
+      shell: wget https://eu-central-1.console.aws.amazon.com/ec2/home?region=eu-central-1#Instances: && echo "{{ password }}"
+

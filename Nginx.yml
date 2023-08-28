@@ -1,0 +1,10 @@
+- name: installing nginx on g2
+  hosts: Group_01
+  become: true
+  tasks:
+    - name: installing nginx
+      apt: name=nginx state=present
+    - name: start nginx
+      service: name=nginx state=started
+
+#This play book will install and start the nginx on the list of servers i have mentioned in  the group_01
