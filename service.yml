@@ -1,4 +1,4 @@
-- name: installing nginx on g2
+- name: installing nginx on g1
   hosts: Group_01
   become: true
   tasks:
